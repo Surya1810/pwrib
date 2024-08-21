@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>PWRI-B | @yield('title')</title>
+    <title>@yield('title') - Admin | Persatuan Wartawan Republik Indonesia Bersatu</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet" />
@@ -51,7 +51,7 @@
                             class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ route('home') }}" target="_blank" class="nav-link">Home</a>
+                    <a href="{{ route('landing') }}" target="_blank" class="nav-link">Home</a>
                 </li>
             </ul>
 
@@ -138,7 +138,7 @@
                         </li>
                         <li class="nav-header mt-3">Admin Section</li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('users.index') }}" class="nav-link">
                                 <i class="nav-icon fa-regular fa-id-card"></i>
                                 <p>
                                     Member
@@ -156,7 +156,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ route('categories.index') }}" class="nav-link">
                                         <i class="far fa-solid fa-tags nav-icon"></i>
                                         <p>Category & Tag</p>
                                     </a>
@@ -171,13 +171,13 @@
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">
+                                            <a href="{{ route('posts.index') }}" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Created</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">
+                                            <a href="{{ route('posts.trashed') }}" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Trashed</p>
                                             </a>
@@ -186,7 +186,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-header mt-3">Member Section</li>
+                        {{-- <li class="nav-header mt-3">Member Section</li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa-solid fa-align-left"></i>
@@ -194,7 +194,7 @@
                                     Text
                                 </p>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -215,7 +215,7 @@
                 Anything you want
             </div>
             <!-- Default to the left -->
-            <strong>&copy; 2024 <a href="{{ route('home') }}">PWRIB</a>.</strong> All rights
+            <strong>&copy; 2024 <a href="{{ route('landing') }}">PWRIB</a>.</strong> All rights
             reserved.
         </footer>
     </div>

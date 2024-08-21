@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>PWRI-B | Login</title>
+    <title>Login - Admin | Persatuan Wartawan Republik Indonesia Bersatu</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -22,7 +22,7 @@
         rel="stylesheet" />
 
     <!-- Our style -->
-    <link rel="stylesheet" href="{{ asset('assets/css/style_fe.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </head>
 
 <body>

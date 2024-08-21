@@ -1,0 +1,38 @@
+* {
+    scroll-behavior: smooth;
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+html {
+    height: -webkit-fill-available;
+}
+body {
+    height: 100svh;
+    height: -webkit-fill-available;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+/* Login Page */
+.background {
+    background-image: url(/assets/img/background/Pattern_Light.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #000000;
+}
+
+/* Login Line */
+.line {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+}
+.line span {
+    background: #fff;
+    padding: 0 10px;
+}

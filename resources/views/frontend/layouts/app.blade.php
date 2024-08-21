@@ -7,10 +7,11 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description" content="">
+    <meta name="keywords" content="PWRIB, pwrib pusat, wartawan, indonesia, bersatu">
+    <meta name="author" content="Persatuan Wartawan Republik Indonesia Bersatu">
 
-    @yield('meta')
-
-    <meta name="author" content="PWRI-B">
+    <title>@yield('title') | PWRIB - Persatuan Wartawan Republik Indonesia Bersatu</title>
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ asset('assets/FontAwesome/6.2.1/css/all.min.css') }}">
@@ -22,98 +23,193 @@
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
     </script>
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open Sans:400,500,600,700,800,900&display=swap"
+        rel="stylesheet" />
+
     <!-- Our style -->
     <link rel="stylesheet" href="{{ asset('assets/css/style_fe.css') }}">
 
     @stack('css')
 </head>
 
-{{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-    <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav me-auto">
-
-            </ul>
-
-            <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ms-auto">
-                <!-- Authentication Links -->
-                @guest
-                    @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                    @endif
-
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
-                @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
+<body>
+    @php
+        $time = Carbon\Carbon::now();
+    @endphp
+    <!-- Main Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark py-4 shadow" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand" href="{{ route('landing') }}">
+                <img src="{{ asset('assets/img/logo/light/main.png') }}" alt="PWRIB" height="24">
+            </a>
+            <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse offcanvas-collapse justify-content-end" id="navbarsExampleDefault">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" aria-current="page" href="{{ route('landing') }}">Beranda</a>
                     </li>
-                @endguest
-            </ul>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link mx-2 dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">Tentang Kami</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('sejarah') }}">Sejarah</a></li>
+                            <li><a class="dropdown-item" href="{{ route('visi_misi') }}">Visi & Misi</a></li>
+                            <li><a class="dropdown-item" href="{{ route('pengurus') }}">Pengurus</a></li>
+                            <li><a class="dropdown-item" href="{{ route('staff') }}">Staff</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link mx-2 dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">Informasi Publik</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('berita') }}">Berita</a></li>
+                            <li><a class="dropdown-item" href="{{ route('siaran_pers') }}">Siaran Pers</a></li>
+                            <li><a class="dropdown-item" href="{{ route('galeri') }}">Galeri</a></li>
+                            <li><a class="dropdown-item" href="{{ route('program') }}">Program</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="{{ route('agenda') }}">Agenda</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link mx-2 dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">Anggota</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('dpd') }}">Dewan Pengurus Daerah</a>
+                            </li>
+                            <li><a class="dropdown-item" href="{{ route('dpc') }}">Dewan Pengurus Cabang</a>
+                            </li>
+                            <li><a class="dropdown-item" href="{{ route('data') }}">Data Anggota</a></li>
+                            <li><a class="dropdown-item" href="{{ route('register') }}">Pendaftaran Anggota</a></li>
+                            <li><a class="dropdown-item" href="{{ route('informasi_iuran') }}">Informasi Iuran</a></li>
+                            <li><a class="dropdown-item" href="{{ route('ukw') }}">Uji Kompetensi Wartawan</a>
+                            </li>
+                            <li><a class="dropdown-item" href="{{ route('login') }}">Masuk</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link mx-2 dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">Pelaporan</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('etik') }}">Pelaporan Etik</a></li>
+                            <li><a class="dropdown-item" href="{{ route('seksual') }}">Pelaporan Kekerasan
+                                    Seksual</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="nav-scroller bg-body shadow-sm">
+        <div class="container">
+            <nav class="nav" aria-label="Secondary navigation">
+                <a class="nav-link active text-decoration-none"
+                    aria-current="page">{{ $time->toFormattedDateString() }}</a>
+                {{-- <a class="nav-link" href="#">
+                    Friends
+                    <span class="badge text-bg-light rounded-pill align-text-bottom">27</span>
+                </a> --}}
+                <a class="nav-link" href="#"><i class="fa-solid fa-phone"></i> 0895-</a>
+                <a class="nav-link" href="#"><i class="fa-solid fa-envelope"></i> sekretariat@pwrib.or.id</a>
+                <a class="nav-link" href="#"><i class="fa-brands fa-twitter"></i> @username</a>
+                <a class="nav-link" href="#"><i class="fa-brands fa-facebook-f"></i> @username</a>
+                <a class="nav-link" href="#"><i class="fa-brands fa-youtube"></i> @username</a>
+                <a class="nav-link" href="#"><i class="fa-brands fa-instagram"></i> @username</a>
+            </nav>
         </div>
     </div>
-</nav> --}}
 
-<body>
+    <!-- Main Content -->
+    <main style="min-height: 100svh">
+        @yield('content')
+    </main>
 
-    @yield('content')
+    <!-- Main Footer -->
+    <footer class="bg-dark">
+        <div class="container pt-5 pb-2">
+            <div class="row">
+                <div class="col-12 col-md-5 mb-3">
+
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-4 col-md-2 mb-3">
+                    <h5 class="text-secondary">TENTANG KAMI</h5>
+                    <hr class="text-secondary">
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="{{ route('sejarah') }}"
+                                class="nav-link p-0 text-white">Sejarah</a></li>
+                        <li class="nav-item mb-2"><a href="{{ route('visi_misi') }}"
+                                class="nav-link p-0 text-white">Visi & Misi</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="{{ route('pengurus') }}"
+                                class="nav-link p-0 text-white">Pengurus</a></li>
+                        <li class="nav-item mb-2"><a href="{{ route('staff') }}"
+                                class="nav-link p-0 text-white">Staff</a></li>
+                    </ul>
+                </div>
+                <div class="col-4 col-md-2 mb-3">
+                    <h5 class="text-secondary">PROGRAM</h5>
+                    <hr class="text-secondary">
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-white">Belum ada</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-4 col-md-2 mb-3">
+                    <h5 class="text-secondary">ANGGOTA</h5>
+                    <hr class="text-secondary">
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="{{ route('dpd') }}"
+                                class="nav-link p-0 text-white">Dewan Pengurus Daerah</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="{{ route('dpc') }}"
+                                class="nav-link p-0 text-white">Dewan Pengurus Cabang</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="{{ route('data') }}" class="nav-link p-0 text-white">Data
+                                Anggota</a></li>
+                        <li class="nav-item mb-2"><a href="{{ route('register') }}"
+                                class="nav-link p-0 text-white">Pendaftaran</a>
+                        </li>
+                        <li class="nav-item mb-2"><a href="{{ route('informasi_iuran') }}"
+                                class="nav-link p-0 text-white">Informasi
+                                Iuran</a></li>
+                        <li class="nav-item mb-2"><a href="{{ route('ukw') }}" class="nav-link p-0 text-white">Uji
+                                Kompetensi Wartawan</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row text-center pt-4 mt-4 mb-3 border-top text-white">
+                <small>&copy; Copyright 2024 <strong style="color: red">PWRIB</strong> - All rights reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button type="button" class="btn btn-dark btn-floating btn-lg shadow-lg " id="btn-back-to-top"
+        aria-label="Back to Top">
+        <i class="fas fa-angle-up fa-2xl text-center" style="color: #FFFFFF"></i>
+    </button>
 
     <!-- REQUIRED SCRIPTS -->
 
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-
     <script>
-        // Navbar
-        const navEl = document.querySelector('.navbar');
-        var element = document.getElementById("homee");
+        (() => {
+            'use strict'
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY >= 56) {
-                // element.classList.remove("active");
-                navEl.classList.add('navbar-scrolled', 'navbar-light');
-                navEl.classList.remove('navbar-dark');
-                $(".navbar-brand img").attr("src", "{{ asset('assets/img/logo/dark/main.png') }}");
-            } else if (window.scrollY < 56) {
-                // element.classList.add("active");
-                navEl.classList.remove('navbar-light', 'navbar-scrolled');
-                navEl.classList.add('navbar-dark');
-                $(".navbar-brand img").attr("src", "{{ asset('assets/img/logo/light/main.png') }}");
-            }
-        })
-
+            document.querySelector('#navbarSideCollapse').addEventListener('click', () => {
+                document.querySelector('.offcanvas-collapse').classList.toggle('open')
+            })
+        })()
+    </script>
+    <script>
         //Back to Top Button
         let mybutton = document.getElementById("btn-back-to-top");
 
