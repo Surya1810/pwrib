@@ -16,8 +16,9 @@ class PageController extends Controller
     {
         $latest = Post::latest()->take(3)->get();
         $beritas = Post::latest()->skip(3)->take(60)->paginate(6);
+        $agendas = Agenda::all();
 
-        return view('frontend.beranda.index',  compact('latest', 'beritas'));
+        return view('frontend.beranda.index',  compact('latest', 'beritas', 'agendas'));
     }
 
     public function detail_berita($slug)

@@ -8,8 +8,8 @@
 @endpush
 
 @section('content')
-    <div class="container">
-        <div class="card shadow mt-3">
+    <div class="container my-3">
+        <div class="card shadow">
             <div class="card-body">
                 <h1 class="fs-3 fw-600 mb-3 text-center">Kontak</h1>
                 <h4><strong>Alamat</strong></h4>

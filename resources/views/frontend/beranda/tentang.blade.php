@@ -8,7 +8,7 @@
 @endpush
 
 @section('content')
-    <div class="container mt-3">
+    <div class="container my-3">
         <div class="card shadow">
             <div class="card-body text-center">
                 <h1 class="fs-3 fw-600 mb-3 text-center">Tentang PWRIB</h1>

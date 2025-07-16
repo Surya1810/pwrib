@@ -40,35 +40,38 @@
 @section('content')
     <!-- Higlight -->
     <section class="mb-4">
-        <div id="carouselExampleCaptions" class="carousel slide">
-            <div class="carousel-inner">
-                @foreach ($latest as $key => $news)
-                    <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                        <a href="{{ route('detail.berita', $news->slug) }}">
-                            <div class="ratio ratio-21x9">
-                                <img src="{{ asset('storage/post/' . $news->image) }}" class="d-block w-100"
-                                    alt="{{ $news->slug }}">
-                            </div>
-                            <div class="carousel-caption d-none d-md-block text-black">
-                                <h1 class="display-4 fst-italic"><strong>{{ Str::limit($news->title), 50 }}</strong></h1>
-                            </div>
-                        </a>
-                    </div>
-                @endforeach
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-
         <div class="container my-5">
+            {{-- /Carousel --}}
+            <div id="carouselExampleCaptions" class="carousel slide mb-3">
+                <div class="carousel-inner">
+                    @foreach ($latest as $key => $news)
+                        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                            <a href="{{ route('detail.berita', $news->slug) }}">
+                                <div class="ratio ratio-16x9">
+                                    <img src="{{ asset('storage/post/' . $news->image) }}" class="d-block w-100"
+                                        alt="{{ $news->slug }}">
+                                </div>
+                                <div class="carousel-caption d-block text-white bg-dark bg-opacity-50 p-2 rounded">
+                                    <h5 class="fw-bold mb-0 fs-6 fs-md-3 fs-lg-2">
+                                        {{ Str::limit($news->title, 50) }}
+                                    </h5>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
             <h1 class="fs-3 fw-600 mb-3">Berita</h1>
             <div class="row mt-2">
                 @foreach ($beritas as $berita)
@@ -128,8 +131,69 @@
                 </div>
             </div>
         </section>
+
+        <section>
+            <div class="container">
+                <h1 class="fs-3 fw-600 mb-3">Agenda Kegiatan</h1>
+
+                <div class="card shadow">
+                    <div class="card-body">
+                        <table id="agendaTable" class="table table-striped table-bordered">
+                            <thead>
+                                <th>No</th>
+                                <th>Tanggal</th>
+                                <th>Nama</th>
+                                <th>Penyelenggara</th>
+                                <th>Jam</th>
+                                <th>Lokasi</th>
+                                <th>Detail</th>
+                            </thead>
+                            <tbody>
+                                @foreach ($agendas as $key => $agenda)
+                                    <tr>
+                                        <td>{{ $key + 1 }}</td>
+                                        <td>{{ $agenda->tanggal->format('d-m-Y') }}</td>
+                                        <td>{{ $agenda->nama }}</td>
+                                        <td>{{ $agenda->penyelenggara }}</td>
+                                        <td>{{ $agenda->jam->format('H:i') }}</td>
+                                        <td>{{ $agenda->lokasi }}</td>
+                                        <td>{{ $agenda->detail }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
     </section>
 @endsection
 
 @push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#agendaTable').DataTable({
+                responsive: true,
+                autoWidth: false,
+                headerCallback: function(thead, data, start, end, display) {
+                    $(thead).css('background-color', '#000');
+                    $(thead).css('color', '#FFD700');
+                },
+                language: {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Cari data...",
+                    lengthMenu: "Tampilkan _MENU_ data",
+                    zeroRecords: "Data tidak ditemukan",
+                    info: "Menampilkan _START_ - _END_ dari _TOTAL_ data",
+                    infoEmpty: "Tidak ada data",
+                    infoFiltered: "(difilter dari _MAX_ total data)",
+                    paginate: {
+                        previous: "Sebelumnya",
+                        next: "Berikutnya"
+                    }
+                }
+            });
+        });
+    </script>
 @endpush
