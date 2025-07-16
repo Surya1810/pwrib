@@ -9,14 +9,14 @@
 
 @section('content')
     <div class="container">
-        <h1 class="fs-3 fw-600 mb-3 text-center mt-5">Kontak</h1>
-        <div class="card">
+        <div class="card shadow mt-3">
             <div class="card-body">
-                <h3>Alamat</h3>
+                <h1 class="fs-3 fw-600 mb-3 text-center">Kontak</h1>
+                <h4><strong>Alamat</strong></h4>
                 <p>Jl. Tubagus Ismail VIII No.41 RT.002 RW.010, Kelurahan Sekeloa, Kecamatan Coblong, Kota Bandung</p>
-                <h3>Email</h3>
+                <h4><strong>Email</strong></h4>
                 <p>hi.pwrib@gmail.com</p>
-                <h3>Telepon</h3>
+                <h4><strong>Telepon</strong></h4>
                 <p>+62 821-2600-0126</p>
             </div>
         </div>

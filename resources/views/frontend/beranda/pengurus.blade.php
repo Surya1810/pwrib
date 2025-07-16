@@ -16,7 +16,7 @@
                 <div class="card h-100 p-3">
                     <div class="d-flex flex-column flex-md-row align-items-center">
                         <!-- Foto -->
-                        <img src="https://via.placeholder.com/100" alt="Foto Pengurus"
+                        <img src="{{ asset('assets/img/profile/default.png') }}" alt="Foto Pengurus"
                             class="rounded-circle me-md-3 mb-3 mb-md-0" width="100" height="100">
 
                         <!-- Informasi -->
@@ -31,7 +31,7 @@
                 <div class="card h-100 p-3">
                     <div class="d-flex flex-column flex-md-row align-items-center">
                         <!-- Foto -->
-                        <img src="https://via.placeholder.com/100" alt="Foto Pengurus"
+                        <img src="{{ asset('assets/img/profile/default.png') }}" alt="Foto Pengurus"
                             class="rounded-circle me-md-3 mb-3 mb-md-0" width="100" height="100">
 
                         <!-- Informasi -->
@@ -46,7 +46,7 @@
                 <div class="card h-100 p-3">
                     <div class="d-flex flex-column flex-md-row align-items-center">
                         <!-- Foto -->
-                        <img src="https://via.placeholder.com/100" alt="Foto Pengurus"
+                        <img src="{{ asset('assets/img/profile/default.png') }}" alt="Foto Pengurus"
                             class="rounded-circle me-md-3 mb-3 mb-md-0" width="100" height="100">
 
                         <!-- Informasi -->
@@ -61,7 +61,7 @@
                 <div class="card h-100 p-3">
                     <div class="d-flex flex-column flex-md-row align-items-center">
                         <!-- Foto -->
-                        <img src="https://via.placeholder.com/100" alt="Foto Pengurus"
+                        <img src="{{ asset('assets/img/profile/default.png') }}" alt="Foto Pengurus"
                             class="rounded-circle me-md-3 mb-3 mb-md-0" width="100" height="100">
 
                         <!-- Informasi -->
@@ -76,7 +76,7 @@
                 <div class="card h-100 p-3">
                     <div class="d-flex flex-column flex-md-row align-items-center">
                         <!-- Foto -->
-                        <img src="https://via.placeholder.com/100" alt="Foto Pengurus"
+                        <img src="{{ asset('assets/img/profile/default.png') }}" alt="Foto Pengurus"
                             class="rounded-circle me-md-3 mb-3 mb-md-0" width="100" height="100">
 
                         <!-- Informasi -->

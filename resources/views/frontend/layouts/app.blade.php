@@ -33,10 +33,35 @@
     <!-- Our style -->
     <link rel="stylesheet" href="{{ asset('assets/css/style_fe.css') }}">
 
+    <style>
+        .background-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('{{ asset('assets/img/background/2.png') }}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .background-wrapper::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
     @stack('css')
 </head>
 
-<body style="padding-top: 100px">
+<body style="padding-top: 85px">
+    <div class="background-wrapper"></div>
     @php
         $time = Carbon\Carbon::now();
     @endphp
@@ -44,7 +69,7 @@
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark shadow" aria-label="Main navigation">
         <div class="container">
             <a class="navbar-brand" href="{{ route('landing') }}">
-                <img src="{{ asset('assets/img/logo/main_logo.png') }}" alt="PWRIB" height="65">
+                <img src="{{ asset('assets/img/logo/main_logo.png') }}" alt="PWRIB" height="60">
             </a>
             <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse"
                 aria-label="Toggle navigation">
@@ -53,10 +78,11 @@
             <div class="navbar-collapse offcanvas-collapse justify-content-end" id="navbarsExampleDefault">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link mx-2" aria-current="page" href="{{ route('landing') }}">Beranda</a>
+                        <a class="nav-link mx-2 text-white" aria-current="page"
+                            href="{{ route('landing') }}">Beranda</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link mx-2 dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                        <a class="nav-link mx-2 dropdown-toggle text-white" href="#" data-bs-toggle="dropdown"
                             aria-expanded="false">Profil</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('tentang') }}">Tentang PWRIB</a></li>
@@ -67,15 +93,16 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link mx-2 dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                        <a class="nav-link mx-2 dropdown-toggle text-white" href="#" data-bs-toggle="dropdown"
                             aria-expanded="false">Keanggotaan</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('anggota') }}">Daftar Anggota</a></li>
-                            <li><a class="dropdown-item" href="{{ route('pendaftaran.anggota') }}">Pendaftaran</a></li>
+                            <li><a class="dropdown-item" href="{{ route('pendaftaran.anggota') }}">Pendaftaran</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-2" aria-current="page" href="{{ route('kontak') }}">Kontak</a>
+                        <a class="nav-link mx-2 text-white" aria-current="page" href="{{ route('kontak') }}">Kontak</a>
                     </li>
                 </ul>
             </div>
@@ -105,11 +132,12 @@
                 <div class="col-12 col-md-5 mb-3">
                     <a href="{{ route('landing') }}"
                         class="d-flex align-items-center mb-5 link-body-emphasis text-decoration-none">
-                        <img src="{{ asset('assets/img/logo/main_logo.png') }}" alt="PWRI-B" height="150px">
+                        <img src="{{ asset('assets/img/logo/main_logo.png') }}" alt="PWRI-B" height="90px">
                     </a>
                     <p class="text-light">
                         <i class="fa-solid fa-location-dot me-3"></i>
-                        Jl. Tubagus Ismail VIII No.41 RT.002 RW.010, Kelurahan Sekeloa, Kecamatan Coblong, Kota Bandung
+                        Jl. Tubagus Ismail VIII No.41 RT.002 RW.010, Kelurahan Sekeloa, Kecamatan Coblong, Kota
+                        Bandung
                     </p>
                     <p class="text-light">
                         <i class="fa-solid fa-envelope-open-text me-3"></i>

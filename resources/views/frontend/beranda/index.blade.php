@@ -112,14 +112,14 @@
                 <h1 class="fs-3 fw-600 mb-3">Video</h1>
                 <div class="row">
                     <div class="col-12 col-md-6">
-                        <iframe width="560" height="315"
+                        <iframe class="w-100" height="315"
                             src="https://www.youtube.com/embed/-q3XKT12X7w?si=4krHllbihKI2MvIJ" title="YouTube video player"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                     <div class="col-12 col-md-6">
-                        <iframe width="560" height="315"
+                        <iframe class="w-100" height="315"
                             src="https://www.youtube.com/embed/vUJjGypnWco?si=sDQ5ZqDHJOb-rdkq" title="YouTube video player"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
