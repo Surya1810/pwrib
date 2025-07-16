@@ -1,6 +1,7 @@
 @extends('frontend.layouts.app')
 
 @section('title')
+    Berita
 @endsection
 
 @push('css')
@@ -9,7 +10,7 @@
 @section('content')
     <div class="container my-3">
         <div class="row g-5">
-            <div class="col-md-8">
+            <div class="col-md-8 bg-light">
                 <article class="blog-post">
                     <img src="{{ asset('storage/post/' . $news->image) }}" class="d-block w-100 mb-3"
                         alt="{{ $news->slug }}">
@@ -26,8 +27,8 @@
                             @foreach ($latest as $berita)
                                 <li>
                                     <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
-                                        href="#"> <img src="{{ asset('storage/post/' . $news->image) }}"
-                                            class="d-block w-100" alt="{{ $news->slug }}" height="96">
+                                        href="#"> <img src="{{ asset('storage/post/' . $berita->image) }}"
+                                            class="d-block w-100" alt="{{ $berita->slug }}" height="96">
                                         <div class="col-lg-8">
                                             <h6 class="mb-0">{{ Str::limit($berita->title, 50) }}</h6> <small
                                                 class="text-body-secondary">{{ \Carbon\Carbon::parse($berita->created_at)->format('M d') }}</small>
