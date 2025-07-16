@@ -87,9 +87,6 @@
                                     </div>
                                     <div class="col-md-6 d-flex flex-column justify-content-between p-3">
                                         <div>
-                                            <strong class="d-inline-block mb-2 text-primary-emphasis">
-                                                {{ optional($berita->category)->name ?? '-' }}
-                                            </strong>
                                             <div class="mb-1 text-body-secondary">
                                                 {{ \Carbon\Carbon::parse($berita->created_at)->format('M d') }}
                                             </div>
