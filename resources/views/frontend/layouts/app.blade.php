@@ -117,7 +117,7 @@
                     </p>
                     <p class="text-light">
                         <i class="fa-solid fa-phone-volume me-3"></i>
-                        Phone: +62 821-2600-0126
+                        +62 821-2600-0126
                     </p>
                 </div>
                 <div class="col-md-1"></div>
