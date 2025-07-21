@@ -41,7 +41,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background-image: url('{{ asset('assets/img/background/2.png') }}');
+            background-image: url('{{ asset('assets/img/background/1.jpg') }}');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -70,6 +70,7 @@
         <div class="container">
             <a class="navbar-brand" href="{{ route('landing') }}">
                 <img src="{{ asset('assets/img/logo/main_logo.png') }}" alt="PWRIB" height="60">
+                <span class="fs-4 ms-2 text-warning"><strong>PWRIB</strong></span>
             </a>
             <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse"
                 aria-label="Toggle navigation">
@@ -109,13 +110,12 @@
         </div>
     </nav>
 
-    <div class="nav-scroller bg-body shadow-sm">
+    <div class="nav-scroller bg-warning shadow-sm">
         <div class="container">
             <nav class="nav" aria-label="Secondary navigation">
                 <a class="nav-link active text-decoration-none"
-                    aria-current="page">{{ $time->toFormattedDateString() }}</a>
-                <a class="nav-link"><i class="fa-solid fa-phone"></i> 0821-2600-0126</a>
-                <a class="nav-link"><i class="fa-solid fa-envelope"></i> hi.pwrib@gmail.com</a>
+                    aria-current="page"><strong>{{ $time->toFormattedDateString() }}</strong></a>
+                <a class="nav-link text-black"><i class="fa-solid fa-envelope"></i> hi.pwrib@gmail.com</a>
             </nav>
         </div>
     </div>
@@ -132,7 +132,8 @@
                 <div class="col-12 col-md-5 mb-3">
                     <a href="{{ route('landing') }}"
                         class="d-flex align-items-center mb-5 link-body-emphasis text-decoration-none">
-                        <img src="{{ asset('assets/img/logo/main_logo.png') }}" alt="PWRI-B" height="90px">
+                        <img src="{{ asset('assets/img/logo/main_logo.png') }}" alt="PWRI-B" height="80px">
+                        <span class="fs-4 ms-2 text-warning"><strong>PWRIB</strong></span>
                     </a>
                     <p class="text-light">
                         <i class="fa-solid fa-location-dot me-3"></i>
@@ -143,14 +144,10 @@
                         <i class="fa-solid fa-envelope-open-text me-3"></i>
                         hi.pwrib@gmail.com
                     </p>
-                    <p class="text-light">
-                        <i class="fa-solid fa-phone-volume me-3"></i>
-                        +62 821-2600-0126
-                    </p>
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-6 col-md-3 mb-3">
-                    <h5 class="text-light">PROFIL</h5>
+                    <h5 class="text-warning">PROFIL</h5>
                     <hr class="text-light">
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="{{ route('tentang') }}"
@@ -171,7 +168,7 @@
                     </ul>
                 </div>
                 <div class="col-6 col-md-3 mb-3">
-                    <h5 class="text-light">KEANGGOTAAN</h5>
+                    <h5 class="text-warning">KEANGGOTAAN</h5>
                     <hr class="text-light">
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="{{ route('anggota') }}"
@@ -184,7 +181,7 @@
                 </div>
             </div>
             <div class="row text-center pt-4 mt-4 mb-3 border-top text-light">
-                <small>&copy; Copyright 2025 <strong>PWRIB</strong> - All rights reserved.</small>
+                <small>&copy; Copyright 2025 <strong class="text-warning">PWRIB</strong> - All rights reserved.</small>
             </div>
         </div>
     </footer>
@@ -192,7 +189,7 @@
     <!-- Back to top button -->
     <button type="button" class="btn btn-dark btn-floating btn-lg shadow-lg " id="btn-back-to-top"
         aria-label="Back to Top">
-        <i class="fas fa-angle-up fa-2xl text-center" style="color: #FFFFFF"></i>
+        <i class="fas fa-angle-up fa-2xl text-center" style="color: #1e1e1e"></i>
     </button>
 
     <!-- REQUIRED SCRIPTS -->

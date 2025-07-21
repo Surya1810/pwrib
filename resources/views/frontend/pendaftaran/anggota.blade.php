@@ -11,7 +11,7 @@
     <div class="container mt-3">
         <h1 class="fs-3 fw-600 mb-3 text-center">Pendaftaran Anggota</h1>
 
-        <div class="card">
+        <div class="card shadow">
             <div class="card-body">
                 <h3 class="card-title">Langkah-langkah Pendaftaran</h3>
                 <ol class="mt-3">
@@ -25,8 +25,8 @@
         </div>
 
         <h1 class="fs-3 fw-600 my-3 text-center">Formulir Pendaftaran Anggota</h1>
-        <div class="row">
-            <div class="col-12">
+        <div class="row justify-content-center">
+            <div class="col-6 col-md-3">
                 <a href="{{ route('download.anggota') }}">
                     <div class="card bg-primary rounded-5 text-white">
                         <div class="card-body text-center">
@@ -39,13 +39,15 @@
 
         <hr class="my-5">
 
-        <h1 class="fs-3 fw-600 text-center">Upload Formulir Pendaftaran</h1>
         <form action="{{ route('pendaftaran.upload') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
-                <div class="col-md-12">
-                    <div class="card card-outline rounded-web card-secondary">
+                <div class="col-12">
+                    <div class="card shadow">
                         <div class="card-body">
+                            <div class="card-title">
+                                <h3>Upload Formulir Pendaftaran</h3>
+                            </div>
                             <div class="form-group">
                                 <div class="row">
                                     <input name="jenis" type="hidden" value="anggota">

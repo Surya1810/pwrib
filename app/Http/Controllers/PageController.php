@@ -8,6 +8,9 @@ use App\Models\File;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Mail\FileSubmissionMail;
+use Illuminate\Support\Facades\Mail;
+
 
 class PageController extends Controller
 {
@@ -110,6 +113,13 @@ class PageController extends Controller
             'jenis' => $validated['jenis'],
             'file' => $filePath,
         ]);
+
+        Mail::to('hi.pwrib@gmail.com')->send(new FileSubmissionMail([
+            'name' => $validated['name'],
+            'phone' => $validated['phone'],
+            'jenis' => $validated['jenis'],
+            'file' => $filePath,
+        ]));
 
         return redirect()->back()->with(['pesan' => 'Pendaftaran Berhasil, Menunggu Proses', 'level-alert' => 'alert-success']);
     }
