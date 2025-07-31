@@ -79,7 +79,7 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::findorfail($id);
-        return view('backend.publikasi.edit', compact('post'));
+        return view('frontend.admin.publikasi.edit', compact('post'));
     }
 
     /**
@@ -87,41 +87,45 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $post = Post::findorfail($id);
         $this->validate($request, [
-            'title' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,webp|max:2048',
-            'body' => 'required',
+            'title'      => 'required',
+            'image'      => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'body'       => 'required',
         ]);
 
-        if ($request->hasFile('image')) {
+        $post = Post::findOrFail($id);
+
+        $image = $request->file('image');
+        if (isset($image)) {
             if (!Storage::disk('public')->exists('post')) {
                 Storage::disk('public')->makeDirectory('post');
             }
 
-            //delete old post image
-            if (Storage::disk('public')->exists('post/' . $post->image)) {
+            // Hapus gambar lama jika ada
+            if ($post->image && $post->image !== 'default.png' && Storage::disk('public')->exists('post/' . $post->image)) {
                 Storage::disk('public')->delete('post/' . $post->image);
             }
 
+            // Baca dan simpan gambar baru
             $image = Image::read($request->file('image'));
-
-            // Main Image Upload on Folder Code
             $imageName = uniqid() . time() . '-' . $request->file('image')->getClientOriginalName();
             $destinationPath = 'post/' . $imageName;
-            // Simpan gambar ke disk 'public'
             Storage::disk('public')->put($destinationPath, (string) $image->toWebp(90));
         } else {
-            $imageName = $post->image;
+            $imageName = $post->image; // gunakan gambar lama jika tidak ada upload baru
         }
 
-        $post->title = $request->title;
-        $post->slug = Str::slug($request->title);
-        $post->image = $imageName;
-        $post->body = $request->body;
-        $post->update();
+        // Update post
+        $post->title       = $request->title;
+        $post->slug        = Str::slug($request->title);
+        $post->image       = $imageName;
+        $post->body        = $request->body;
+        $post->save();
 
-        return redirect()->route('landing')->with(['pesan' => 'Berita berhasil diperbarui', 'level-alert' => 'alert-success']);
+        return redirect()->route('landing')->with([
+            'pesan' => 'Post Berhasil Diperbarui',
+            'level-alert' => 'alert-success'
+        ]);
     }
 
     /**

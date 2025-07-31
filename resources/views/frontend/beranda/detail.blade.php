@@ -17,6 +17,17 @@
                     <h2 class="display-5 link-body-emphasis mb-1"><strong>{{ $news->title }}</strong></h2>
                     <p class="blog-post-meta"> {{ \Carbon\Carbon::parse($news->created_at)->format('M d') }}</p>
                     {!! $news->body !!}
+                    @auth
+                        <button class="btn btn-sm btn-danger rounded-web" onclick="deletePost({{ $news->id }})"><i
+                                class="fas fa-trash"></i></button>
+                        <form id="delete-form-{{ $news->id }}" action="{{ route('berita.destroy', $news->id) }}"
+                            method="POST" style="display: none;">
+                            @csrf
+                            @method('DELETE')
+                        </form>
+                        <a class="btn btn-sm btn-warning rounded-web" href="{{ route('berita.edit', $news->id) }}"><i
+                                class="fas fa-pencil"></i></a>
+                    @endauth
                 </article>
             </div>
             <div class="col-md-4">
@@ -45,4 +56,28 @@
 @endsection
 
 @push('scripts')
+    <script>
+        function deletePost(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                icon: 'warning',
+                showCancelButton: false,
+                confirmButtonColor: '#d33',
+                confirmButtonText: 'Delete'
+            }).then((result) => {
+                if (result.value) {
+                    event.preventDefault();
+                    document.getElementById('delete-form-' + id).submit();
+                } else if (
+                    result.dismiss === swal.DismissReason.cancel
+                ) {
+                    swal(
+                        'Cancelled',
+                        'Your data is safe !',
+                        'error'
+                    )
+                }
+            })
+        }
+    </script>
 @endpush

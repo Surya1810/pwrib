@@ -94,6 +94,7 @@
                                                 {{ \Carbon\Carbon::parse($berita->created_at)->format('M d') }}
                                             </div>
                                             <h5 class="card-title mb-2">{{ Str::limit($berita->title, 50) }}</h5>
+
                                         </div>
                                     </div>
                                 </div>
