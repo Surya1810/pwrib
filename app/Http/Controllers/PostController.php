@@ -24,7 +24,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('backend.publikasi.create');
+        return view('frontend.admin.publikasi.create');
     }
 
     /**
@@ -62,7 +62,7 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->save();
 
-        return redirect()->route('berita.index')->with(['pesan' => 'Berita berhasil terbit', 'level-alert' => 'alert-success']);
+        return redirect()->route('landing')->with(['pesan' => 'Berita berhasil terbit', 'level-alert' => 'alert-success']);
     }
 
     /**
@@ -121,7 +121,7 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->update();
 
-        return redirect()->route('berita.index')->with(['pesan' => 'Berita berhasil diperbarui', 'level-alert' => 'alert-success']);
+        return redirect()->route('landing')->with(['pesan' => 'Berita berhasil diperbarui', 'level-alert' => 'alert-success']);
     }
 
     /**
@@ -137,6 +137,6 @@ class PostController extends Controller
 
         $post->delete();
 
-        return redirect()->route('berita.index')->with(['pesan' => 'Berita berhasil dihapus', 'level-alert' => 'alert-danger']);
+        return redirect()->route('landing')->with(['pesan' => 'Berita berhasil dihapus', 'level-alert' => 'alert-danger']);
     }
 }

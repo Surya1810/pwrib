@@ -16,6 +16,14 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ asset('assets/FontAwesome/6.2.1/css/all.min.css') }}">
 
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="{{ asset('favicons/favicon-96x96.png') }}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicons/favicon.svg') }}" />
+    <link rel="shortcut icon" href="{{ asset('favicons/favicon.ico') }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicons/apple-touch-icon.png') }}" />
+    <meta name="apple-mobile-web-app-title" content="PWRIB" />
+    <link rel="manifest" href="{{ asset('favicons/site.webmanifest') }}" />
+
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -32,6 +40,17 @@
 
     <!-- Our style -->
     <link rel="stylesheet" href="{{ asset('assets/css/style_fe.css') }}">
+
+    <!-- TinyMCE -->
+    <script src="https://cdn.tiny.cloud/1/4ce77u0y45a0kxjxqgmq8hyqdgrqd8pdetaervdmri41d1qa/tinymce/7/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea#desc',
+            plugins: 'code table lists',
+            toolbar: 'undo redo | blocks| bold italic | bullist numlist | code | table | alignleft aligncenter alignright alignjustify | indent outdent'
+        });
+    </script>
 
     <style>
         .background-wrapper {
@@ -105,6 +124,27 @@
                     <li class="nav-item">
                         <a class="nav-link mx-2 text-white" aria-current="page" href="{{ route('kontak') }}">Kontak</a>
                     </li>
+                    @auth
+                        <li class="nav-item dropdown">
+                            <button
+                                class="nav-link dropdown-toggle mx-2 text-white {{ request()->is('keanggotaan*') ? 'active' : '' }}"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false">Admin</button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('berita.create') }}">Buat Berita</a></li>
+                                <li><a class="dropdown-item" href="{{ route('agenda.create') }}">Buat Agenda</a></li>
+                                {{-- <li><a class="dropdown-item" href="{{ route('anggota.index') }}">Cek Pendaftaran</a>
+                                </li> --}}
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    @endauth
                 </ul>
             </div>
         </div>
@@ -177,6 +217,12 @@
                         <li class="nav-item mb-2"><a href="{{ route('pendaftaran.anggota') }}"
                                 class="nav-link p-0 text-light">Pendaftaran</a>
                         </li>
+                        @auth
+                        @else
+                            <li class="nav-item mb-2"><a href="{{ route('login') }}"
+                                    class="nav-link p-0 text-light">Login - Admin</a>
+                            </li>
+                        @endauth
                     </ul>
                 </div>
             </div>

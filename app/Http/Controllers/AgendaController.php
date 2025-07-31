@@ -24,7 +24,7 @@ class AgendaController extends Controller
      */
     public function create()
     {
-        //
+        return view('frontend.admin.agenda.create');
     }
 
     /**
@@ -49,7 +49,7 @@ class AgendaController extends Controller
         $agenda->detail = $request->detail;
         $agenda->save();
 
-        return redirect()->route('agenda.index')->with(['pesan' => 'Agenda berhasil ditambahkan', 'level-alert' => 'alert-success']);
+        return redirect()->route('agenda')->with(['pesan' => 'Agenda berhasil ditambahkan', 'level-alert' => 'alert-success']);
     }
 
     /**
@@ -90,7 +90,7 @@ class AgendaController extends Controller
         $agenda->detail = $request->detail;
         $agenda->update();
 
-        return redirect()->route('agenda.index')->with(['pesan' => 'Agenda berhasil diperbarui', 'level-alert' => 'alert-success']);
+        return redirect()->route('agenda')->with(['pesan' => 'Agenda berhasil diperbarui', 'level-alert' => 'alert-success']);
     }
 
     /**
@@ -101,6 +101,6 @@ class AgendaController extends Controller
         $agenda = Agenda::findorfail($id);
         $agenda->delete();
 
-        return redirect()->route('agenda.index')->with(['pesan' => 'Agenda berhasil dihapus', 'level-alert' => 'alert-danger']);
+        return redirect()->route('agenda')->with(['pesan' => 'Agenda berhasil dihapus', 'level-alert' => 'alert-danger']);
     }
 }

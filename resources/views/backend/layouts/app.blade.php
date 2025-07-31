@@ -104,42 +104,6 @@
                         <li class="nav-header mt-3">Admin</li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fa-solid fa-file-pen "></i>
-
-                                <p>
-                                    Publikasi
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a class="nav-item">
-                                        <a href="{{ route('berita.index') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Berita</p>
-                                        </a>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('agenda.index') }}" class="nav-link">
-                                <i class="nav-icon fa-solid fa-calendar-days"></i>
-                                <p>
-                                    Agenda
-                                </p>
-                            </a>
-                        </li>
-                        {{-- <li class="nav-item">
-                            <a href="{{ route('info.index') }}" class="nav-link">
-                                <i class="nav-icon fa-solid fa-circle-info"></i>
-                                <p>
-                                    Informasi
-                                </p>
-                            </a>
-                        </li> --}}
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
                                 <i class="nav-icon fa-regular fa-id-card"></i>
                                 <p>
                                     Pengurus
@@ -148,12 +112,6 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    {{-- <a class="nav-item">
-                                        <a href="{{ route('pengurus.index') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Daftar Pengurus</p>
-                                        </a>
-                                    </a> --}}
                                     <a class="nav-item">
                                         <a href="{{ route('pengurus.pendaftaran') }}" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
