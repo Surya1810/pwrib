@@ -34,7 +34,8 @@
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="title" class="mb-0 form-label col-form-label-sm">Judul</label>
+                                    <label for="title"
+                                        class="mb-0 form-label col-form-label-sm fw-semibold">Judul</label>
                                     <input type="text" class="form-control @error('title') is-invalid @enderror"
                                         id="title" name="title" placeholder="Tulis judul berita"
                                         value="{{ old('title') }}">
@@ -44,21 +45,26 @@
                                         </span>
                                     @enderror
 
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <label class="custom-file-label col-form-label-sm mt-2" for="image">Pilih
-                                                    file gambar utama
-                                                    <small class="text-danger">*rasio gambar 4:3</small></label>
-                                                <input class="form-control @error('image') is-invalid @enderror"
-                                                    type="file" id="image" name="image"
-                                                    accept="image/png, image/jpeg, image/jpg, image/webp">
-                                            </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <label class="custom-file-label col-form-label-sm mt-2 fw-semibold"
+                                                for="image">Pilih
+                                                file gambar utama
+                                            </label>
+                                            <input class="form-control @error('image') is-invalid @enderror" type="file"
+                                                id="image" name="image"
+                                                accept="image/png, image/jpeg, image/jpg, image/webp">
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="title"
+                                        class="mb-0 form-label col-form-label-sm fw-semibold">Berita</label>
+                                    <textarea name="body" id="body" placeholder="type here...">{{ old('title') }}</textarea>
+                                </div>
 
-                                <textarea name="body" id="body" placeholder="type here...">{{ old('title') }}</textarea>
                             </div>
                             <div class="card-footer rounded-web">
                                 <button type="submit" class="btn btn-warning rounded-web float-right">Upload</button>

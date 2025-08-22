@@ -87,10 +87,23 @@
     <!-- Main Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark shadow" aria-label="Main navigation">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('landing') }}">
+            <a class="navbar-brand d-flex align-items-center" href="{{ route('landing') }}">
                 <img src="{{ asset('assets/img/logo/main_logo.png') }}" alt="PWRIB" height="60">
-                <span class="fs-4 ms-2 text-warning"><strong>PWRIB</strong></span>
+                <div class="ms-2 lh-sm">
+                    <div class="fw-bold text-warning">PWRIB</div>
+                    <div class="text-warning d-block">
+                        <span class="d-block d-md-inline"
+                            style="font-size: 12px; font-size: clamp(12px, 2vw, 0.75rem);">
+                            Perkumpulan Wartawan
+                        </span>
+                        <span class="d-block d-md-inline"
+                            style="font-size: 12px; font-size: clamp(12px, 2vw, 0.75rem);">
+                            Republik Indonesia Bersatu
+                        </span>
+                    </div>
+                </div>
             </a>
+
             <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -172,9 +185,20 @@
                 <div class="col-12 col-md-5 mb-3">
                     <a href="{{ route('landing') }}"
                         class="d-flex align-items-center mb-5 link-body-emphasis text-decoration-none">
-                        <img src="{{ asset('assets/img/logo/main_logo.png') }}" alt="PWRI-B" height="80px">
-                        <span class="fs-4 ms-2 text-warning"><strong>PWRIB</strong></span>
+                        <img src="{{ asset('assets/img/logo/main_logo.png') }}" alt="PWRIB" height="80">
+                        <div class="ms-2 lh-sm">
+                            <div class="fw-bold text-warning fs-4">PWRIB</div>
+                            <div class="text-warning">
+                                <span class="d-block d-md-inline" style="font-size: 12px;">
+                                    Perkumpulan Wartawan
+                                </span>
+                                <span class="d-block d-md-inline" style="font-size: 12px;">
+                                    Republik Indonesia Bersatu
+                                </span>
+                            </div>
+                        </div>
                     </a>
+
                     <p class="text-light">
                         <i class="fa-solid fa-location-dot me-3"></i>
                         Jl. Tubagus Ismail VIII No.41 RT.002 RW.010, Kelurahan Sekeloa, Kecamatan Coblong, Kota
