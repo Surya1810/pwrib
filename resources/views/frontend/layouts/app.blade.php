@@ -76,6 +76,30 @@
             background-color: rgba(255, 255, 255, 0.7);
         }
     </style>
+
+    <style>
+        /* Default untuk layar besar (≥1400px) */
+        .floating-ad {
+            width: 160px;
+            height: auto;
+        }
+
+        /* Laptop sedang (≥992px dan <1400px) */
+        @media (max-width: 1399px) {
+            .floating-ad {
+                width: 100px;
+                height: auto;
+            }
+        }
+
+        /* Laptop kecil (≥992px dan <1200px) */
+        @media (max-width: 1199px) {
+            .floating-ad {
+                width: 80px;
+                height: auto;
+            }
+        }
+    </style>
     @stack('css')
 </head>
 
@@ -145,6 +169,9 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{ route('berita.create') }}">Buat Berita</a></li>
                                 <li><a class="dropdown-item" href="{{ route('agenda.create') }}">Buat Agenda</a></li>
+                                <li><a class="dropdown-item" href="{{ route('video.create') }}">Unggah Video</a></li>
+                                <li><a class="dropdown-item" href="{{ route('pengumuman.create') }}">Unggah
+                                        Pengumuman</a></li>
                                 {{-- <li><a class="dropdown-item" href="{{ route('anggota.index') }}">Cek Pendaftaran</a>
                                 </li> --}}
                                 <li>
@@ -262,11 +289,9 @@
         <i class="fas fa-angle-up fa-2xl text-center" style="color: #1e1e1e"></i>
     </button>
 
+    @include('components.ads')
+
     <!-- REQUIRED SCRIPTS -->
-
-    <!-- Jquery -->
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> --}}
-
     <!-- DataTables -->
     <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css" rel="stylesheet">

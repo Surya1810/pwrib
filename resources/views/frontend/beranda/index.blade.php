@@ -116,20 +116,22 @@
         <section>
             <div class="container mb-4">
                 <h1 class="fs-3 fw-600 mb-3">Video</h1>
-                <div class="row">
-                    {{-- <div class="col-12 col-md-6">
-                        <iframe class="w-100" height="315"
-                            src="https://www.youtube.com/embed/-q3XKT12X7w?si=4krHllbihKI2MvIJ" title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div> --}}
-                    <div class="col-12 col-md-6">
-                        <iframe class="w-100" height="315"
-                            src="https://www.youtube.com/embed/vUJjGypnWco?si=sDQ5ZqDHJOb-rdkq" title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="row g-2">
+                    @foreach ($videos as $video)
+                        <div class="col-12 col-md-6">
+                            <div class="ratio ratio-16x9">
+                                <iframe
+                                    src="https://www.youtube.com/embed/{{ \Illuminate\Support\Str::afterLast($video->youtube_url, 'v=') }}"
+                                    frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <form action="{{ route('video.destroy', $video) }}" method="POST" class="d-inline">
+                                @csrf @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm mt-2">Hapus</button>
+                            </form>
+                        </div>
+                    @endforeach
+                    <div class="d-flex justify-content-center mt-4">
+                        {{ $videos->links() }}
                     </div>
                 </div>
             </div>

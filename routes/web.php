@@ -6,9 +6,10 @@ use App\Http\Controllers\InfoController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PengurusController;
 use App\Http\Controllers\PostController;
-
+use App\Http\Controllers\VideoController;
 
 //Beranda
 Route::get('/', [PageController::class, 'beranda'])->name('landing');
@@ -48,6 +49,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     //Informasi
     Route::resource('info', InfoController::class);
+
+    // Video
+    Route::resource('video', VideoController::class);
+
+    // Pengumuman
+    Route::resource('pengumuman', PengumumanController::class)->only([
+        'create',
+        'store',
+        'destroy'
+    ]);
 
     //Pengurus
     Route::get('pengurus/pendaftaran', [PengurusController::class, 'pendaftaran'])->name('pengurus.pendaftaran');

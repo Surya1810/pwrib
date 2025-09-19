@@ -9,6 +9,8 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Mail\FileSubmissionMail;
+use App\Models\Pengumuman;
+use App\Models\Video;
 use Illuminate\Support\Facades\Mail;
 
 
@@ -20,8 +22,9 @@ class PageController extends Controller
         $latest = Post::latest()->take(3)->get();
         $beritas = Post::latest()->skip(3)->take(60)->paginate(6);
         $agendas = Agenda::all();
+        $videos = Video::latest()->take(40)->paginate(4);
 
-        return view('frontend.beranda.index',  compact('latest', 'beritas', 'agendas'));
+        return view('frontend.beranda.index',  compact('latest', 'beritas', 'agendas', 'videos'));
     }
 
     public function detail_berita($slug)
