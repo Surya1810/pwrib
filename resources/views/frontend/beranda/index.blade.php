@@ -124,10 +124,14 @@
                                     src="https://www.youtube.com/embed/{{ \Illuminate\Support\Str::afterLast($video->youtube_url, 'v=') }}"
                                     frameborder="0" allowfullscreen></iframe>
                             </div>
-                            <form action="{{ route('video.destroy', $video) }}" method="POST" class="d-inline">
-                                @csrf @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm mt-2">Hapus</button>
-                            </form>
+                            @auth
+                                @if (Auth::user()->role == 'Admin')
+                                    <form action="{{ route('video.destroy', $video) }}" method="POST" class="d-inline">
+                                        @csrf @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm mt-2">Hapus</button>
+                                    </form>
+                                @endif
+                            @endauth
                         </div>
                     @endforeach
                     <div class="d-flex justify-content-center mt-4">
